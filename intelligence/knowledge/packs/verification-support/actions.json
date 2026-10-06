@@ -1,0 +1,81 @@
+{
+  "actions": [
+    {
+      "id": "submitted",
+      "label": "submitted",
+      "synonyms": [
+        "submitted",
+        "submit",
+        "submitting",
+        "sent",
+        "send",
+        "uploaded",
+        "upload",
+        "provided",
+        "provide",
+        "attached",
+        "shared",
+        "emailed"
+      ],
+      "origin": "lexicon",
+      "review": "established",
+      "note": "From the existing frustration and intent lexicons (already submitted / uploaded / sent / provided, upload*, attach*)."
+    },
+    {
+      "id": "resubmitted",
+      "label": "resubmitted",
+      "synonyms": [
+        "resubmitted",
+        "resubmit",
+        "re-submitted",
+        "re-uploaded",
+        "reuploaded",
+        "sent again",
+        "uploaded again"
+      ],
+      "origin": "lexicon",
+      "review": "established",
+      "note": "resubmit is in the existing correction_request intent."
+    },
+    {
+      "id": "corrected",
+      "label": "corrected",
+      "synonyms": [
+        "corrected",
+        "correct",
+        "updated",
+        "update",
+        "amended",
+        "amend",
+        "changed"
+      ],
+      "origin": "lexicon",
+      "review": "established",
+      "note": "From the correction_request intent (correct, amend, update)."
+    },
+    {
+      "id": "received",
+      "label": "received",
+      "synonyms": [
+        "received",
+        "receive",
+        "got"
+      ],
+      "origin": "lexicon",
+      "review": "established",
+      "note": "'not received' is in the existing negative lexicon."
+    },
+    {
+      "id": "requested",
+      "label": "asked",
+      "synonyms": [
+        "asked",
+        "requested",
+        "request"
+      ],
+      "origin": "inferred",
+      "review": "needs_review",
+      "note": "Generic verbs; confirm before relying on them."
+    }
+  ]
+}

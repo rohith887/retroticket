@@ -1,0 +1,52 @@
+{
+  "id": "verification-support-replies",
+  "name": "Reply patterns for verification support",
+  "version": "0.1.0",
+  "schemaVersion": 1,
+  "status": "draft",
+  "language": "en",
+  "packId": "verification-support",
+  "description": "Conservative wording for editable reply drafts. Every sentence is a template over extracted facts. This is a separate versioned artifact: the verification-support knowledge pack itself is unchanged.",
+  "reviewNotes": [
+    "Every pattern here is new wording written for Phase 3C and has not been reviewed by the business: all are needs_review.",
+    "Patterns only restate what the customer said (as a claim), restate ticket status supplied by Node, or ask the customer a question. There is no pattern that promises, confirms receipt, confirms an outcome, quotes a time, or states policy.",
+    "Not implemented on purpose: 'the case is being checked'. It would need a verified Node fact that says work is in progress (an event or status), and that knowledge does not exist yet."
+  ],
+  "limits": {"maxSentences": 8, "maxChars": 700, "maxClaims": 3},
+  "ignoreActions": ["requested"],
+  "allowedStates": ["awaiting_support"],
+  "unknownIntents": ["other"],
+  "intents": {
+    "document_issue": {"requiresEntity": true, "steps": ["opening", "claims", "request_ack", "ask_which_document", "ask_missing_entity", "closing"]},
+    "correction_request": {"requiresEntity": true, "steps": ["opening", "claims", "request_ack", "ask_which_document", "ask_missing_entity", "closing"]},
+    "verification_question": {"requiresEntity": false, "steps": ["opening", "claims", "request_ack", "ask_which_document", "closing"]},
+    "status_request": {"requiresEntity": false, "steps": ["opening", "verified_status", "claims", "request_ack", "closing"]}
+  },
+  "patterns": [
+    {"id": "opening", "step": "opening", "template": "Thank you for your message.", "origin": "inferred", "review": "needs_review", "note": "Courtesy opening; states nothing about the case."},
+    {"id": "claim.action_outcome", "step": "claims", "when": {"hasAction": true, "hasOutcome": true, "polarity": "affirmed"}, "template": "You mentioned that you {action} your {entity}{count} and that it was {outcome}.", "origin": "inferred", "review": "needs_review", "note": "Restates a customer claim, hedged with 'You mentioned'."},
+    {"id": "claim.outcome", "step": "claims", "when": {"hasAction": false, "hasOutcome": true, "polarity": "affirmed"}, "template": "You mentioned that your {entity} was {outcome}.", "origin": "inferred", "review": "needs_review", "note": "Restates a customer claim."},
+    {"id": "claim.action", "step": "claims", "when": {"hasAction": true, "hasOutcome": false, "polarity": "affirmed"}, "template": "You mentioned that you {action} your {entity}{count}.", "origin": "inferred", "review": "needs_review", "note": "Restates a customer claim; never says the action was received or completed on our side."},
+    {"id": "claim.negated_outcome", "step": "claims", "when": {"hasAction": false, "hasOutcome": true, "polarity": "negated"}, "template": "You mentioned that your {entity} was not {outcome}.", "origin": "inferred", "review": "needs_review", "note": "Restates a customer claim."},
+    {"id": "claim.negated_action", "step": "claims", "when": {"hasAction": true, "hasOutcome": false, "polarity": "negated"}, "template": "You mentioned that you have not {action} your {entity}.", "origin": "inferred", "review": "needs_review", "note": "Restates a customer claim."},
+    {"id": "request.entity", "step": "request_ack", "template": "You asked about your {entity}.", "origin": "inferred", "review": "needs_review", "note": "Restates the customer's request when a document or verification was named."},
+    {"id": "verified.status", "step": "verified_status", "template": "Our records show this ticket as {value}.", "origin": "inferred", "review": "needs_review", "note": "States the ticket status Node supplied. Only used for status requests."},
+    {"id": "ask.which_document", "step": "ask_which_document", "entities": ["document"], "template": "Could you let us know which document this relates to?", "origin": "inferred", "review": "needs_review", "note": "Used when the customer only said 'document' or similar."},
+    {"id": "ask.missing_entity", "step": "ask_missing_entity", "template": "Could you let us know which document or verification you are asking about?", "origin": "inferred", "review": "needs_review", "note": "Clarifying question when nothing specific was named."},
+    {"id": "closing", "step": "closing", "template": "Please reply to this message with any other details that may be relevant.", "origin": "inferred", "review": "needs_review", "note": "Invites more detail; promises nothing."}
+  ],
+  "validation": {
+    "forbiddenPhrases": [
+      "we received", "we have received", "we've received", "has been received", "have been received", "was received", "were received",
+      "we rejected", "we have rejected", "we've rejected", "was rejected by us",
+      "has been approved", "have been approved", "will be approved", "is approved", "we approved",
+      "will be completed", "has been completed", "have been completed", "will be resolved", "has been resolved", "will be verified", "has been verified", "is verified",
+      "we will", "we'll", "we are going to", "we shall", "we promise", "we guarantee", "guarantee", "rest assured",
+      "shortly", "soon", "as soon as", "within", "by tomorrow", "by today", "business day", "working day", "in a few",
+      "refund", "reimburse", "compensat",
+      "currently reviewing", "currently checking", "being reviewed", "being checked", "under review", "our team is", "our team has",
+      "our policy", "policy", "according to our", "as per our", "terms and conditions",
+      "internal", "note:", "escalat"
+    ]
+  }
+}

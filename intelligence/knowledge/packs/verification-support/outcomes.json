@@ -1,0 +1,12 @@
+{
+  "outcomes": [
+    {"id": "rejected", "label": "rejected", "polarity": "negative", "synonyms": ["rejected", "reject", "rejects", "rejecting", "declined", "not accepted", "isn't accepted", "wasn't accepted", "not being accepted"], "origin": "lexicon", "review": "established", "note": "rejected and 'not accepted' are in the existing lexicons."},
+    {"id": "insufficient", "label": "insufficient", "polarity": "negative", "synonyms": ["insufficient", "insufficient documents", "not enough", "incomplete"], "origin": "data", "review": "established", "note": "Seen in stored ticket subjects ('... - insufficient documents')."},
+    {"id": "needs_correction", "label": "in need of correction", "polarity": "negative", "synonyms": ["correction required", "needs correction", "need correction", "incorrect", "wrong", "mistake*"], "origin": "data", "review": "established", "note": "'Correction Required' is the subject of stored outbound messages; incorrect / wrong / mistake are in the lexicons."},
+    {"id": "unreadable", "label": "unreadable", "polarity": "negative", "synonyms": ["blurry", "illegible", "unreadable", "not readable", "not clear"], "origin": "lexicon", "review": "established", "note": "blurry and illegible are in the existing document_issue intent."},
+    {"id": "failed", "label": "failing", "polarity": "negative", "synonyms": ["failed", "fails", "failing", "failure", "not working", "error"], "origin": "lexicon", "review": "established", "note": "fail* and 'not working' are in the existing lexicons."},
+    {"id": "pending", "label": "pending", "polarity": "pending", "synonyms": ["pending", "still waiting", "awaiting", "on hold"], "origin": "lexicon", "review": "established", "note": "pending is in the existing status_request intent; hold counts exist in workflow data."},
+    {"id": "completed", "label": "completed", "polarity": "positive", "synonyms": ["completed", "complete", "approved", "cleared", "clear"], "origin": "code", "review": "established", "note": "completed / approved / clear are the terminal stage values in the workflow snapshot code."},
+    {"id": "fixed", "label": "resolved", "polarity": "positive", "synonyms": ["resolved", "solved", "works now", "working now", "sorted"], "origin": "lexicon", "review": "established", "note": "In the existing positive lexicon. A customer saying this is a claim, never a verified resolution."}
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "_comment": "Fixed wording used to turn facts into sentences (foundation for Phase 3B summaries and Phase 3C drafts). Every sentence is a template over knowledge labels and extracted slots, so nothing that is not in the facts can be said. Customer statements are always phrased as claims ('reports', 'says'), never as verified fact.",
+  "requestPhrases": [
+    {"intent": "document_issue", "phrase": "has an issue with a document", "origin": "lexicon", "review": "established"},
+    {"intent": "verification_question", "phrase": "has a question about a verification", "origin": "lexicon", "review": "established"},
+    {"intent": "status_request", "phrase": "is asking for a status update", "origin": "lexicon", "review": "established"},
+    {"intent": "correction_request", "phrase": "is asking for a correction", "origin": "lexicon", "review": "established"},
+    {"intent": "technical_issue", "phrase": "reports a technical problem", "origin": "lexicon", "review": "established"},
+    {"intent": "general_question", "phrase": "has a general question", "origin": "lexicon", "review": "established"},
+    {"intent": "complaint", "phrase": "is raising a complaint", "origin": "lexicon", "review": "established"}
+  ],
+  "countWords": {"1": "once", "2": "twice", "3": "three times", "4": "four times", "5": "five times"},
+  "factTemplates": [
+    {"id": "claim.action_outcome", "when": {"party": "customer", "kind": "claim", "hasAction": true, "hasOutcome": true, "polarity": "affirmed"}, "template": "The customer says they {action} the {entity}{count} and it was {outcome}.", "review": "established"},
+    {"id": "claim.outcome", "when": {"party": "customer", "kind": "claim", "hasAction": false, "hasOutcome": true, "polarity": "affirmed"}, "template": "The customer reports the {entity} was {outcome}.", "review": "established"},
+    {"id": "claim.action", "when": {"party": "customer", "kind": "claim", "hasAction": true, "hasOutcome": false, "polarity": "affirmed"}, "template": "The customer says they {action} the {entity}{count}.", "review": "established"},
+    {"id": "claim.negated_outcome", "when": {"party": "customer", "kind": "claim", "hasAction": false, "hasOutcome": true, "polarity": "negated"}, "template": "The customer says the {entity} was not {outcome}.", "review": "established"},
+    {"id": "claim.negated_action", "when": {"party": "customer", "kind": "claim", "hasAction": true, "hasOutcome": false, "polarity": "negated"}, "template": "The customer says they have not {action} the {entity}.", "review": "established"}
+  ],
+  "verifiedTemplates": [
+    {"id": "verified.status", "field": "status", "template": "The ticket status is {value}.", "review": "established"},
+    {"id": "verified.priority", "field": "priority", "template": "The ticket priority is {value}.", "review": "established"}
+  ],
+  "statePhrases": [
+    {"state": "resolved", "phrase": "The ticket is recorded as resolved.", "review": "established"},
+    {"state": "awaiting_support", "phrase": "The customer is waiting for a reply from support.", "review": "established"},
+    {"state": "awaiting_customer", "phrase": "Support has asked the customer for something and is waiting for a reply.", "review": "needs_review"},
+    {"state": "unresolved", "phrase": "A problem reported by the customer appears to be still open.", "review": "needs_review"},
+    {"state": "unknown", "phrase": "The current state of the conversation could not be determined.", "review": "established"}
+  ]
+}

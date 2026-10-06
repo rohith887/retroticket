@@ -1,0 +1,24 @@
+{
+  "id": "verification-support",
+  "name": "Verification support (first draft)",
+  "version": "0.1.0",
+  "schemaVersion": 1,
+  "status": "draft",
+  "language": "en",
+  "description": "First knowledge pack for the verification / applicant-support domain. Built only from vocabulary found in the existing application code, message templates, stored tickets and messages, and the existing rule lexicons. It is a DRAFT: nothing in it is a business-approved rule yet.",
+  "files": {
+    "intents": "intents.json",
+    "indicators": "indicators.json",
+    "entities": "entities.json",
+    "actions": "actions.json",
+    "outcomes": "outcomes.json",
+    "states": "states.json",
+    "realisation": "realisation.json"
+  },
+  "reviewNotes": [
+    "Every entry carries an origin (where the vocabulary came from) and a review value: approved | established | needs_review.",
+    "established = found in existing code, templates, stored data or lexicons, but not yet approved by the business. needs_review = inferred or taken from an example; it must be confirmed or removed.",
+    "A pack may only be marked approved when every entry is approved. Set KNOWLEDGE_REQUIRE_APPROVED=true in production to refuse draft packs.",
+    "Nothing here comes from a real business rulebook: refunds, timelines, policies and verification outcomes are deliberately absent."
+  ]
+}

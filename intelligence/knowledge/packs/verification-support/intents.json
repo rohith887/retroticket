@@ -1,0 +1,385 @@
+{
+  "_comment": "Customer intent categories for the verification / applicant-support domain, taken over unchanged from the Phase 1 default file. Exactly one entry must have fallback: true. Keywords: weight 1 (weak) to 3 (strong); a trailing * matches any word ending.",
+  "intents": [
+    {
+      "label": "document_issue",
+      "description": "A problem with a document that was uploaded, sent or rejected.",
+      "keywords": [
+        {
+          "phrase": "document*",
+          "weight": 1
+        },
+        {
+          "phrase": "upload*",
+          "weight": 1
+        },
+        {
+          "phrase": "attach*",
+          "weight": 1
+        },
+        {
+          "phrase": "scan*",
+          "weight": 1
+        },
+        {
+          "phrase": "blurry",
+          "weight": 2
+        },
+        {
+          "phrase": "illegible",
+          "weight": 2
+        },
+        {
+          "phrase": "not accepted",
+          "weight": 2
+        },
+        {
+          "phrase": "rejected",
+          "weight": 2
+        },
+        {
+          "phrase": "wrong document",
+          "weight": 3
+        },
+        {
+          "phrase": "invalid document",
+          "weight": 3
+        },
+        {
+          "phrase": "certificate*",
+          "weight": 1
+        },
+        {
+          "phrase": "marksheet*",
+          "weight": 1
+        },
+        {
+          "phrase": "transcript*",
+          "weight": 1
+        },
+        {
+          "phrase": "proof",
+          "weight": 1
+        },
+        {
+          "phrase": "already submitted",
+          "weight": 1
+        }
+      ],
+      "origin": "lexicon",
+      "review": "established",
+      "note": "Phase 1 default intent categories; the vocabulary was written for this domain but has not been approved by the business."
+    },
+    {
+      "label": "verification_question",
+      "description": "A question about how a verification works or what it needs.",
+      "keywords": [
+        {
+          "phrase": "verif*",
+          "weight": 1
+        },
+        {
+          "phrase": "how do i",
+          "weight": 1
+        },
+        {
+          "phrase": "how can i",
+          "weight": 1
+        },
+        {
+          "phrase": "what is required",
+          "weight": 2
+        },
+        {
+          "phrase": "requirement*",
+          "weight": 1
+        },
+        {
+          "phrase": "reference check",
+          "weight": 2
+        },
+        {
+          "phrase": "employment verification",
+          "weight": 2
+        },
+        {
+          "phrase": "education verification",
+          "weight": 2
+        },
+        {
+          "phrase": "address verification",
+          "weight": 2
+        },
+        {
+          "phrase": "which documents",
+          "weight": 2
+        },
+        {
+          "phrase": "eligible",
+          "weight": 1
+        }
+      ],
+      "origin": "lexicon",
+      "review": "established",
+      "note": "Phase 1 default intent categories; the vocabulary was written for this domain but has not been approved by the business."
+    },
+    {
+      "label": "status_request",
+      "description": "Asking where a case stands or when it will be done.",
+      "keywords": [
+        {
+          "phrase": "status",
+          "weight": 2
+        },
+        {
+          "phrase": "any update",
+          "weight": 3
+        },
+        {
+          "phrase": "update on",
+          "weight": 2
+        },
+        {
+          "phrase": "progress",
+          "weight": 1
+        },
+        {
+          "phrase": "where is",
+          "weight": 1
+        },
+        {
+          "phrase": "when will",
+          "weight": 2
+        },
+        {
+          "phrase": "how long",
+          "weight": 2
+        },
+        {
+          "phrase": "eta",
+          "weight": 2
+        },
+        {
+          "phrase": "timeline",
+          "weight": 2
+        },
+        {
+          "phrase": "pending",
+          "weight": 1
+        }
+      ],
+      "origin": "lexicon",
+      "review": "established",
+      "note": "Phase 1 default intent categories; the vocabulary was written for this domain but has not been approved by the business."
+    },
+    {
+      "label": "correction_request",
+      "description": "Asking to correct or change details on a case.",
+      "keywords": [
+        {
+          "phrase": "correction*",
+          "weight": 2
+        },
+        {
+          "phrase": "correct the",
+          "weight": 2
+        },
+        {
+          "phrase": "incorrect",
+          "weight": 2
+        },
+        {
+          "phrase": "mistake*",
+          "weight": 1
+        },
+        {
+          "phrase": "wrong name",
+          "weight": 3
+        },
+        {
+          "phrase": "wrong date",
+          "weight": 3
+        },
+        {
+          "phrase": "typo",
+          "weight": 2
+        },
+        {
+          "phrase": "amend*",
+          "weight": 2
+        },
+        {
+          "phrase": "change my",
+          "weight": 2
+        },
+        {
+          "phrase": "update my details",
+          "weight": 3
+        },
+        {
+          "phrase": "resubmit",
+          "weight": 2
+        }
+      ],
+      "origin": "lexicon",
+      "review": "established",
+      "note": "Phase 1 default intent categories; the vocabulary was written for this domain but has not been approved by the business."
+    },
+    {
+      "label": "technical_issue",
+      "description": "A problem with the portal, a link, or signing in.",
+      "keywords": [
+        {
+          "phrase": "log in",
+          "weight": 1
+        },
+        {
+          "phrase": "login",
+          "weight": 1
+        },
+        {
+          "phrase": "password",
+          "weight": 2
+        },
+        {
+          "phrase": "otp",
+          "weight": 2
+        },
+        {
+          "phrase": "portal",
+          "weight": 1
+        },
+        {
+          "phrase": "website",
+          "weight": 1
+        },
+        {
+          "phrase": "not loading",
+          "weight": 2
+        },
+        {
+          "phrase": "error",
+          "weight": 1
+        },
+        {
+          "phrase": "bug*",
+          "weight": 2
+        },
+        {
+          "phrase": "crash*",
+          "weight": 2
+        },
+        {
+          "phrase": "cannot access",
+          "weight": 2
+        },
+        {
+          "phrase": "link expired",
+          "weight": 3
+        },
+        {
+          "phrase": "not working",
+          "weight": 1
+        },
+        {
+          "phrase": "timed out",
+          "weight": 2
+        }
+      ],
+      "origin": "lexicon",
+      "review": "established",
+      "note": "Phase 1 default intent categories; the vocabulary was written for this domain but has not been approved by the business."
+    },
+    {
+      "label": "general_question",
+      "description": "A general question that fits none of the categories above.",
+      "keywords": [
+        {
+          "phrase": "question",
+          "weight": 1
+        },
+        {
+          "phrase": "i would like to know",
+          "weight": 2
+        },
+        {
+          "phrase": "could you tell",
+          "weight": 2
+        },
+        {
+          "phrase": "clarif*",
+          "weight": 2
+        },
+        {
+          "phrase": "information",
+          "weight": 1
+        },
+        {
+          "phrase": "help",
+          "weight": 1
+        }
+      ],
+      "origin": "lexicon",
+      "review": "established",
+      "note": "Phase 1 default intent categories; the vocabulary was written for this domain but has not been approved by the business."
+    },
+    {
+      "label": "complaint",
+      "description": "A complaint about service, delay or handling.",
+      "keywords": [
+        {
+          "phrase": "complaint",
+          "weight": 3
+        },
+        {
+          "phrase": "complain*",
+          "weight": 3
+        },
+        {
+          "phrase": "unacceptable",
+          "weight": 2
+        },
+        {
+          "phrase": "disappointed",
+          "weight": 2
+        },
+        {
+          "phrase": "escalate*",
+          "weight": 3
+        },
+        {
+          "phrase": "manager",
+          "weight": 2
+        },
+        {
+          "phrase": "poor service",
+          "weight": 3
+        },
+        {
+          "phrase": "no response",
+          "weight": 2
+        },
+        {
+          "phrase": "ridiculous",
+          "weight": 2
+        },
+        {
+          "phrase": "refund",
+          "weight": 2
+        }
+      ],
+      "origin": "lexicon",
+      "review": "established",
+      "note": "Phase 1 default intent categories; the vocabulary was written for this domain but has not been approved by the business."
+    },
+    {
+      "label": "other",
+      "description": "Nothing above matched.",
+      "fallback": true,
+      "keywords": [],
+      "origin": "lexicon",
+      "review": "established",
+      "note": "Phase 1 default intent categories; the vocabulary was written for this domain but has not been approved by the business."
+    }
+  ]
+}

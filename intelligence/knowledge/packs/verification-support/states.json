@@ -1,0 +1,25 @@
+{
+  "_comment": "Conversation states and the ordered rules that pick one. Rules are evaluated top to bottom; the first that matches wins. If none matches the state is 'unknown': the engine never guesses. Only the first rule is verified (it uses the ticket state Node supplies); the others are inferences from the message flow and are flagged for review.",
+  "states": [
+    {"id": "resolved", "description": "The ticket is recorded as resolved or closed by the system."},
+    {"id": "awaiting_support", "description": "The customer wrote last and asked for something; the next move is support's."},
+    {"id": "awaiting_customer", "description": "Support wrote last and asked the customer for something; the next move is the customer's."},
+    {"id": "unresolved", "description": "A problem the customer reported is still open, but whose turn it is cannot be determined."},
+    {"id": "unknown", "description": "There is not enough evidence to say."}
+  ],
+  "resolvedTicketStatuses": [
+    {"value": "done", "origin": "code", "review": "established", "note": "The 'done' status used by the ticket views."},
+    {"value": "resolved", "origin": "code", "review": "established", "note": "Ticket state produced by the Node ticket-state mapping when isComplete is true."},
+    {"value": "closed", "origin": "code", "review": "established", "note": "Thread status."},
+    {"value": "archived", "origin": "code", "review": "established", "note": "Thread status."}
+  ],
+  "rules": [
+    {"id": "R1", "when": {"verifiedResolved": true}, "then": "resolved", "origin": "code", "review": "established", "justification": "Verified: Node reports isComplete or a terminal status. This is the only rule that relies on system data, not on interpreting messages."},
+    {"id": "R2", "when": {"publicMessages": 0}, "then": "unknown", "origin": "inferred", "review": "established", "justification": "No customer or support message to reason about."},
+    {"id": "R3", "when": {"lastPublicParty": "customer", "lastMessageHas": "open_request"}, "then": "awaiting_support", "origin": "code", "review": "established", "justification": "The agent inbox already treats a customer message without a later reply as waiting for support (unread indicator, last-message preview)."},
+    {"id": "R4", "when": {"lastPublicParty": "customer", "lastMessageHas": "closing_only"}, "then": "unknown", "origin": "inferred", "review": "needs_review", "justification": "A customer saying thanks may be closing the matter or not; the engine does not decide."},
+    {"id": "R5", "when": {"lastPublicParty": "agent", "lastMessageHas": "information_request"}, "then": "awaiting_customer", "origin": "code", "review": "needs_review", "justification": "The existing outbound templates ask the customer to update or upload documents; a later reply is expected from the customer."},
+    {"id": "R6", "when": {"lastPublicParty": "agent", "unresolvedProblemClaims": true}, "then": "unresolved", "origin": "inferred", "review": "needs_review", "justification": "The customer reported a problem, support replied without asking for anything, and nothing says it was fixed."},
+    {"id": "R7", "when": {"lastPublicParty": "customer", "unresolvedProblemClaims": true}, "then": "awaiting_support", "origin": "inferred", "review": "needs_review", "justification": "The customer wrote last and reported a problem, even without an explicit question."}
+  ]
+}

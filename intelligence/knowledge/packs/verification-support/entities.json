@@ -1,0 +1,24 @@
+{
+  "entityTypes": [
+    {"id": "document", "label": "document"},
+    {"id": "verification_component", "label": "verification component"}
+  ],
+  "entities": [
+    {"id": "document", "type": "document", "label": "document", "synonyms": ["document*", "file*", "attachment*", "scan*"], "origin": "lexicon", "review": "established", "note": "Generic word used in the existing intent lexicon (document*, attach*, scan*)."},
+    {"id": "certificate", "type": "document", "label": "certificate", "synonyms": ["certificate*"], "origin": "lexicon", "review": "established", "note": "In the existing intent lexicon."},
+    {"id": "marksheet", "type": "document", "label": "marksheet", "synonyms": ["marksheet*", "mark sheet*"], "origin": "lexicon", "review": "established", "note": "In the existing intent lexicon."},
+    {"id": "transcript", "type": "document", "label": "transcript", "synonyms": ["transcript*"], "origin": "lexicon", "review": "established", "note": "In the existing intent lexicon."},
+    {"id": "address_proof", "type": "document", "label": "address proof", "synonyms": ["address proof*", "proof of address"], "origin": "code", "review": "established", "note": "Appears in the existing code; the address verification type also appears in the lexicon."},
+    {"id": "id_proof", "type": "document", "label": "ID proof", "synonyms": ["id proof*", "proof of identity", "identity proof*"], "origin": "code", "review": "established", "note": "Appears in the existing code."},
+    {"id": "passport", "type": "document", "label": "passport", "synonyms": ["passport*"], "origin": "user_example", "review": "needs_review", "note": "Taken from the design example, not from existing application data. Confirm that passports are a document type in this workflow."},
+
+    {"id": "education", "type": "verification_component", "label": "education verification", "synonyms": ["education verification", "education check", "education"], "origin": "data", "review": "established", "note": "Component name seen in stored 'Correction Required' messages and 'Education Verification Request' threads."},
+    {"id": "employment", "type": "verification_component", "label": "employment verification", "synonyms": ["employment verification", "employment check", "employment"], "origin": "data", "review": "established", "note": "Seen in stored ticket subjects ('Employment Verification Request') and in the lexicon."},
+    {"id": "address", "type": "verification_component", "label": "address verification", "synonyms": ["address verification", "address check"], "origin": "lexicon", "review": "established", "note": "In the existing intent lexicon."},
+    {"id": "reference_check", "type": "verification_component", "label": "reference check", "synonyms": ["reference check*"], "origin": "lexicon", "review": "established", "note": "In the existing intent lexicon."},
+    {"id": "education_reference", "type": "verification_component", "label": "education reference", "synonyms": ["education reference", "education_reference"], "origin": "data", "review": "established", "note": "Component name seen in a stored 'Correction Required' message."},
+    {"id": "ecourt", "type": "verification_component", "label": "e-court check", "synonyms": ["ecourt", "e-court", "e court"], "origin": "data", "review": "established", "note": "Component name seen in stored 'Correction Required' messages."},
+    {"id": "social_media", "type": "verification_component", "label": "social media check", "synonyms": ["social media", "socialmedia", "social_media"], "origin": "data", "review": "established", "note": "Component name seen in a stored 'Correction Required' message."},
+    {"id": "contact", "type": "verification_component", "label": "contact verification", "synonyms": ["contact verification"], "origin": "data", "review": "needs_review", "note": "Seen in a stored subject ('Workflow Communication - Contact'); the exact meaning of this component should be confirmed."}
+  ]
+}
